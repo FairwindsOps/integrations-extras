@@ -1,0 +1,150 @@
+{
+    "title": "Insights Overview",
+    "description": "",
+    "widgets": [
+        {
+            "id": 0,
+            "definition": {
+                "type": "event_stream",
+                "query": "Fairwinds Insights $severity.value $cluster.value $report.value",
+                "tags_execution": "and",
+                "event_size": "s",
+                "title": "Recent Insights Events",
+                "title_size": "16",
+                "title_align": "left"
+            },
+            "layout": {
+                "x": 65,
+                "y": 19,
+                "width": 43,
+                "height": 43
+            }
+        },
+        {
+            "id": 1,
+            "definition": {
+                "type": "timeseries",
+                "requests": [
+                    {
+                        "q": "sum:fairwinds.insights.action_items{$severity,$report} by {insights_cluster}",
+                        "display_type": "line",
+                        "style": {
+                            "palette": "dog_classic",
+                            "line_type": "solid",
+                            "line_width": "normal"
+                        }
+                    }
+                ],
+                "yaxis": {
+                    "label": "",
+                    "scale": "linear",
+                    "min": "auto",
+                    "max": "auto",
+                    "include_zero": true
+                },
+                "events": [
+                    {
+                        "q": "Fairwinds Insights",
+                        "tags_execution": "and"
+                    }
+                ],
+                "title": "Action Items by Cluster",
+                "title_size": "16",
+                "title_align": "left",
+                "show_legend": false
+            },
+            "layout": {
+                "x": 0,
+                "y": 0,
+                "width": 108,
+                "height": 19
+            }
+        },
+        {
+            "id": 2,
+            "definition": {
+                "type": "timeseries",
+                "requests": [
+                    {
+                        "q": "sum:fairwinds.insights.action_items{$cluster,$report} by {severity}",
+                        "display_type": "line",
+                        "style": {
+                            "palette": "dog_classic",
+                            "line_type": "solid",
+                            "line_width": "normal"
+                        }
+                    }
+                ],
+                "yaxis": {
+                    "label": "",
+                    "scale": "linear",
+                    "min": "auto",
+                    "max": "auto",
+                    "include_zero": true
+                },
+                "events": [
+                    {
+                        "q": "Fairwinds Insights",
+                        "tags_execution": "and"
+                    }
+                ],
+                "title": "Action Items by Severity",
+                "title_size": "16",
+                "title_align": "left",
+                "show_legend": false
+            },
+            "layout": {
+                "x": 0,
+                "y": 19,
+                "width": 65,
+                "height": 22
+            }
+        },
+        {
+            "id": 3,
+            "definition": {
+                "type": "change",
+                "requests": [
+                    {
+                        "q": "sum:fairwinds.insights.action_items{$severity, $cluster} by {insights_report}",
+                        "change_type": "absolute",
+                        "compare_to": "hour_before",
+                        "increase_good": true,
+                        "order_by": "change",
+                        "order_dir": "desc"
+                    }
+                ],
+                "title": "Change in Action Items by Report",
+                "title_size": "16",
+                "title_align": "left"
+            },
+            "layout": {
+                "x": 0,
+                "y": 42,
+                "width": 65,
+                "height": 20
+            }
+        }
+    ],
+    "template_variables": [
+        {
+            "name": "severity",
+            "default": "*",
+            "prefix": "severity"
+        },
+        {
+            "name": "cluster",
+            "default": "*",
+            "prefix": "insights_cluster"
+        },
+        {
+            "name": "report",
+            "default": "*",
+            "prefix": "insights_report"
+        }
+    ],
+    "layout_type": "free",
+    "is_read_only": false,
+    "notify_list": [],
+    "id": "w2v-cwv-p28"
+}

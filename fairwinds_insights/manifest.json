@@ -1,0 +1,32 @@
+{
+  "display_name": "Fairwinds Insights",
+  "maintainer": "insights@fairwinds.com",
+  "manifest_version": "1.0.0",
+  "name": "fairwinds_insights",
+  "metric_prefix": "fairwinds.insights.",
+  "metric_to_check": "",
+  "creates_events": true,
+  "short_description": "Bring Action Items from Fairwinds Insights into Datadog.",
+  "guid": "fd4bd190-d57d-449b-9880-76cbf8325a3e",
+  "support": "contrib",
+  "supported_os": [
+    "linux",
+    "mac_os",
+    "windows"
+  ],
+  "public_title": "Datadog-Fairwinds Insights Integration",
+  "categories": [
+    ""
+  ],
+  "type": "check",
+  "is_public": false,
+  "integration_id": "insights",
+  "assets": {
+    "dashboards": {
+      "Insights Overview": "assets/dashboards/overview.json"
+    },
+    "saved_views": {},
+    "monitors": {},
+    "service_checks": "assets/service_checks.json"
+  }
+}
