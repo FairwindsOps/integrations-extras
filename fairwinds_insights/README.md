@@ -2,20 +2,20 @@
 
 ## Overview
 
-Validate your Kubernetes configurations
+### Validate your Kubernetes configurations
 
-Improve your security posture
+#### Improve your security posture
 
-*  Scan containers for vulnerabilities
+* Scan containers for vulnerabilities
 * Validate deployment configurations
 * Audit clusters for weaknesses
 
-Reduce costs
+#### Reduce costs
 
 * Gain visibility into application resource usage
 * Determine the right CPU and memory settings for your workloads
 
-Save time
+#### Save time
 
 * Integrate Kubernetes configuration recommendations with your existing Datadog dashboards
 * Improve collaboration with Slack integration
